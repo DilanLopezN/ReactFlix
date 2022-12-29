@@ -1,8 +1,16 @@
+Tecnologias:
+NODE JS
+REACT
+<br>
 Dependências
 ADMIN JS / express formidable
-NODE JS
-TYPESCRIPT
-REACT
+<br>
 POSTMAN PARA TESTAR METÓDOS HTTP
 EXPRESS
 SEQUELIZE - ORM
+Dependência de desenvolvimento
+typescript
+ts node dev
+sequelize cli
+types express
+types node
