@@ -14,3 +14,4 @@ ts node dev
 sequelize cli
 types express
 types node
+bcrypt
