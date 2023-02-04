@@ -12,7 +12,7 @@ Adminjs.registerAdapter(AdminJsSequelize)
 export const adminJs = new Adminjs({
   databases: [sequelize],
   rootPath: '/admin',
-  resources: adminJsResources,,
+  resources: adminJsResources,
   locale: locale,
   branding: {
     companyName: 'ReactFlix',

@@ -15,3 +15,5 @@ sequelize cli
 types express
 types node
 bcrypt
+
+npm run dev abrir rota admin no /admin
