@@ -5,13 +5,15 @@ import { sequelize } from '../database'
 import { adminJsResources } from '../../.adminjs/resources'
 import { User } from '../models'
 import bcrypt from 'bcrypt'
+import { locale } from './locale'
 
 Adminjs.registerAdapter(AdminJsSequelize)
 
 export const adminJs = new Adminjs({
   databases: [sequelize],
   rootPath: '/admin',
-  resources: adminJsResources,
+  resources: adminJsResources,,
+  locale: locale,
   branding: {
     companyName: 'ReactFlix',
     logo: '/reactflix.svg',
