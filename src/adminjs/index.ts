@@ -14,6 +14,9 @@ export const adminJs = new Adminjs({
   rootPath: '/admin',
   resources: adminJsResources,
   locale: locale,
+  dashboard: {
+    component: Adminjs.bundle('./components/Dashboard')
+  },
   branding: {
     companyName: 'ReactFlix',
     logo: '/reactflix.svg',
