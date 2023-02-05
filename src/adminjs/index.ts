@@ -3,9 +3,10 @@ import AdminJsExpress from '@adminjs/express'
 import AdminJsSequelize from '@adminjs/sequelize'
 import { sequelize } from '../database'
 import { adminJsResources } from '../../.adminjs/resources'
-import { User } from '../models'
+
 import bcrypt from 'bcrypt'
 import { locale } from './locale'
+import { Category, Course, Episode, User } from '../models'
 
 Adminjs.registerAdapter(AdminJsSequelize)
 
@@ -13,10 +14,23 @@ export const adminJs = new Adminjs({
   databases: [sequelize],
   rootPath: '/admin',
   resources: adminJsResources,
-  locale: locale,
   dashboard: {
-    component: Adminjs.bundle('./components/Dashboard')
+    component: Adminjs.bundle('../components/Dashboard'),
+    handler: async (req, res, context) => {
+      const courses = await Course.count()
+      const episodes = await Episode.count()
+      const category = await Category.count()
+      const standardUsers = await User.count({ where: { role: 'user' } })
+
+      res.json({
+        Cursos: courses,
+        Episódios: episodes,
+        Categorias: category,
+        Usuários: standardUsers
+      })
+    }
   },
+  locale: locale,
   branding: {
     companyName: 'ReactFlix',
     logo: '/reactflix.svg',
