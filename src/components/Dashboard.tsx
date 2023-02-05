@@ -10,9 +10,10 @@ import {
   TableRow,
   TableCell
 } from '@adminjs/design-system'
-import { ApiClient } from 'adminjs'
+import { ApiClient, useCurrentAdmin } from 'adminjs'
 
 export default function Dashboard() {
+  const [currentAdmin] = useCurrentAdmin()
   const [resources, setResources] = useState<{ [key: string]: number }>()
   const api = new ApiClient()
 
@@ -29,7 +30,7 @@ export default function Dashboard() {
 
   return (
     <section style={{ padding: '1.5rem' }}>
-      <H1>Seja bem-vindo!</H1>
+      <H1>Seja bem-vindo! {currentAdmin?.firstName}!</H1>
 
       <section style={{ backgroundColor: '#FFF', padding: '1.5rem' }}>
         <H2>Resumo</H2>
