@@ -15,7 +15,7 @@ export const adminJs = new Adminjs({
   rootPath: '/admin',
   resources: adminJsResources,
   dashboard: {
-    component: Adminjs.bundle('../components/Dashboard'),
+    component: Adminjs.bundle('./components/Dashboard'),
     handler: async (req, res, context) => {
       const courses = await Course.count()
       const episodes = await Episode.count()
