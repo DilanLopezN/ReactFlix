@@ -33,6 +33,6 @@ export const courseService = {
       () => 0.5 - Math.random()
     )
 
-    return randomFeaturedCourses
+    return randomFeaturedCourses.slice(0, 3)
   }
 }

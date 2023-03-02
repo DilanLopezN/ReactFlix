@@ -4,6 +4,8 @@ export const coursesController = {
   // Get /courses/featured
   featured: async (req: Request, res: Response) => {
     try {
+      const featuredCourses = await courseService.getRandomFeaturedCourses()
+      return res.json(featuredCourses)
     } catch (error) {
       console.error('Erro Courses Get With ID', error)
     }
