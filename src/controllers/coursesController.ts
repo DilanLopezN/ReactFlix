@@ -10,6 +10,18 @@ export const coursesController = {
       console.error('Erro Courses Get With ID', error)
     }
   },
+// Get /courses/newest
+ newest: async (req: Request, res: Response) => {
+    try {
+     const newestCourses = await courseService.getTopTenNewest()
+     return res.json(newestCourses)
+    } catch (error) {
+      console.error('Erro Courses Get With ID', error)
+    }
+  },
+
+
+
   // GET /courses/:id
   show: async (req: Request, res: Response) => {
     const { id } = req.params
