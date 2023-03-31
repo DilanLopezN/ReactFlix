@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { getPaginatonParams } from '../helpers/getPaginationParams'
 import { courseService } from '../services/coursesService'
 export const coursesController = {
   // Get /courses/featured
@@ -23,10 +24,11 @@ export const coursesController = {
   // Get /courses/search
 search: async (req: Request, res: Response) => {
   const { name} = req.query
+  const [page, perPage] = getPaginatonParams(req.query)
   try {
     if(typeof name !== 'string') throw new Error('Parametro precisa ser string')
     
-   const courses = await courseService.findByName(name)
+   const courses = await courseService.findByName(name, page, perPage)
    return res.json(courses)
   } catch (error) {
     console.error('Erro Courses Get With ID', error)
