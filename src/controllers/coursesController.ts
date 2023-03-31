@@ -20,6 +20,20 @@ export const coursesController = {
     }
   },
 
+  // Get /courses/search
+search: async (req: Request, res: Response) => {
+  const { name} = req.query
+  try {
+    if(typeof name !== 'string') throw new Error('Parametro precisa ser string')
+    
+   const courses = await courseService.findByName(name)
+   return res.json(courses)
+  } catch (error) {
+    console.error('Erro Courses Get With ID', error)
+  }
+},
+
+
 
 
   // GET /courses/:id
