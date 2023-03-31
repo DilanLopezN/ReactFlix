@@ -14,3 +14,4 @@ router.get('/courses/newest', coursesController.newest)
 router.get('/courses/:id', coursesController.show)
 
 export { router }
+ 

@@ -1,3 +1,4 @@
+import { Op } from 'sequelize/dist'
 import { Course } from '../models'
 
 export const courseService = {
@@ -43,6 +44,21 @@ export const courseService = {
         order: [['created_at', 'DESC']]
       }
     )
+    return courses
+  },
+
+  findByName: async (name: string) => {
+    const courses = await Course.findAll(
+      {
+        attributes: ['id', 'name', 'synopsis',['thumbnail_url', 'thumbnailUrl']],
+        where: {
+          name: {
+            [Op.iLike]: `%${name}%`
+          }
+        }
+      }
+    )
+
     return courses
   }
 }
