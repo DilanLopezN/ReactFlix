@@ -53,7 +53,7 @@ export const authController = {
         }
         const token = jwtService.signToken(payload,'1d')
 
-        return res.json({ authenticaded: true, user, token})
+        return res.json({ authenticaded: true, ...payload, token})
       })
 
     } catch (error) {
