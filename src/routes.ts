@@ -2,7 +2,11 @@ import express from 'express'
 import { categoriesController } from './controllers/categoriesController'
 import { coursesController } from './controllers/coursesController'
 import { episodesController } from './controllers/episodesController'
+import { authController } from './controllers/authController'
 const router = express.Router()
+
+
+router.post('/auth/register', authController.register)
 
 //categoires
 router.get('/categories', categoriesController.index)
