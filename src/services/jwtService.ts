@@ -5,5 +5,8 @@ export const jwtService = {
 return jwt.sign(payload, secret, {
   expiresIn: expiration
 })
+  },
+  verifyToken: (token: string, cbf: jwt.VerifyCallback) => {
+    jwt.verify(token, secret, cbf)
   }
 }
